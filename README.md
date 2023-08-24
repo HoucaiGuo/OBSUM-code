@@ -1,2 +1,2 @@
 # OBSUM-data
-Data for testing OBSUM
+Code for our paper "OBSUM: An object-based spatial unmixing model for spatiotemporal fusion of remote sensing images"
