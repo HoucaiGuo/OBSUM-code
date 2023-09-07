@@ -140,7 +140,7 @@ class OBSUM:
 
     def select_similar_pixels(self):
         """
-        Select similar pixels for pixel-wise residual compensation.
+        Select similar pixels for pixel-level residual compensation.
         """
         F_tb_pad = np.pad(self.F_tb,
                           pad_width=((self.similar_win_size // 2, self.similar_win_size // 2),
@@ -175,7 +175,7 @@ class OBSUM:
         Returns
         -------
         F_tp_prediction : array_like
-            The predicted fine image at t2.
+            The predicted fine image at tp.
         """
         ###########################################################
         #                      Initialization                     #
@@ -201,7 +201,7 @@ class OBSUM:
         # equation (6) in the manuscript
         object_residual_index = object_homo_index / distances_in_C
 
-        # pad the coarse image at t2 and the fraction maps since the unmixing process is based on a local window
+        # pad the coarse image at tp and the fraction maps since the unmixing process is based on a local window
         C_tp_pad = np.pad(self.C_tp, pad_width=((self.win_size // 2, self.win_size // 2),
                                                 (self.win_size // 2, self.win_size // 2), (0, 0)), mode="reflect")
         C_fractions_pad = np.pad(C_fractions, pad_width=((self.win_size // 2, self.win_size // 2),
@@ -209,7 +209,7 @@ class OBSUM:
                                  mode="reflect")
         object_indices = np.unique(self.F_tb_objects)
 
-        # select similar pixels for pixel level residual compensation (PL-RC)
+        # select similar pixels for pixel-level residual compensation (PL-RC)
         F_tb_similar_indices, F_tb_similar_weights = self.select_similar_pixels()
         print("Selected similar pixels!")
 
@@ -221,7 +221,7 @@ class OBSUM:
             upper_bound = np.max(C_tp_pad[:, :, band_idx])
             SU_prediction = np.empty(shape=(self.F_tb.shape[0], self.F_tb.shape[1]), dtype=self.C_tp.dtype)
             ###########################################################
-            #              1. Object-based unmxing (OB-U)             #
+            #              1. Object-level unmxing (OL-U)             #
             ###########################################################
             for row_idx in range(self.C_tp.shape[0]):
                 for col_idx in range(self.C_tp.shape[1]):
@@ -272,6 +272,7 @@ class OBSUM:
                 # residual selection
                 residual_indices = object_residual_index[object_mask]
 
+                # equation (7) in the manuscript
                 indices = (residual_indices >= np.percentile(residual_indices, 100 - self.OL_RC_percent)).nonzero()[0]
 
                 # indices = np.argsort(residual_indices)[
@@ -282,12 +283,12 @@ class OBSUM:
 
                 # use weighted residuals
                 selected_weights = residual_indices[indices]
-                # equation (7) in the manuscript
-                selected_weights = selected_weights / np.sum(selected_weights)
                 # equation (8) in the manuscript
+                selected_weights = selected_weights / np.sum(selected_weights)
+                # equation (9) in the manuscript
                 residual = np.sum(selected_weights * selected_residuals)
 
-                # assign the predicted residual, equation (9) in the manuscript
+                # assign the predicted object-level residual, equation (10) in the manuscript
                 F_tp_prediction[:, :, band_idx][object_mask] += residual
             print(f"Finished object-level residual compensation of band {band_idx}!")
             OL_RC[:, :, band_idx] = F_tp_prediction[:, :, band_idx].copy()
@@ -311,10 +312,10 @@ class OBSUM:
                     similar_residuals = neighbor_pixel_residuals.flatten()[similar_indices]
                     similar_weights = F_tb_similar_weights[row_idx, col_idx, :]
 
-                    # use weighted residuals, equation (13) in the manuscript
+                    # use weighted residuals, equation (14) in the manuscript
                     residual = np.sum(similar_residuals * similar_weights)
 
-                    # assign the predicted residual, equation (14) in the manuscript
+                    # assign the predicted residual, equation (15) in the manuscript
                     F_tp_prediction[row_idx, col_idx, band_idx] += residual
             print(f"Finished final prediction of band {band_idx}!")
 
