@@ -21,7 +21,7 @@ F_tb_objects_path = f"data/Coleambally/S2_20211223_sam.tif"
 F_tb_class_path = f"data/Coleambally/S2_20211223_KMeans-5.tif"
 C_tp_path = f"data/Coleambally/S3_20220803.tif"
 
-F_tp_OB_U_path = f"data/Coleambally/20220803/OBSUM/OL-U.tif"
+F_tp_OL_U_path = f"data/Coleambally/20220803/OBSUM/OL-U.tif"
 F_tp_OL_RC_path = f"data/Coleambally/20220803/OBSUM/OL-RC.tif"
 F_tp_OBSUM_path = f"data/Coleambally/20220803/OBSUM/OBSUM.tif"
 
@@ -48,13 +48,13 @@ if __name__ == '__main__':
                   class_num=class_num, scale_factor=scale_factor, win_size=win_size,
                   OL_RC_percent=object_RC_percent,
                   similar_win_size=similar_win_size, similar_num=similar_num)
-    F_tp_OB_U, F_tp_OL_RC, F_tp_OBSUM = obsum.object_based_spatial_unmixing()
+    F_tp_OL_U, F_tp_OL_RC, F_tp_OBSUM = obsum.object_based_spatial_unmixing()
 
     time1 = datetime.now()
     time_span = time1 - time0
     print(f"Used {time_span.total_seconds():.2f} seconds!")
 
-    write_raster(F_tp_OB_U, F_tb_profile, F_tp_OB_U_path)
+    write_raster(F_tp_OL_U, F_tb_profile, F_tp_OL_U_path)
     write_raster(F_tp_OL_RC, F_tb_profile, F_tp_OL_RC_path)
     write_raster(F_tp_OBSUM, F_tb_profile, F_tp_OBSUM_path)
 
