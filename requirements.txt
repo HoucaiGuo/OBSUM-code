@@ -1,0 +1,8 @@
+numpy>=1.22.1
+scipy>=1.7.3
+scikit-image>=0.19.1
+rasterio>=1.2.10
+scikit-learn>=1.0.2
+sklearn>=0.0
+matplotlib>=3.5.1
+torch>=1.11.0+cu113
