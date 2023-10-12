@@ -11,4 +11,4 @@ All fused images (Fig. 8 and 9 in the paper, 3.8 GB): https://pan.baidu.com/s/1_
 
 Note: Please visit https://www.lfd.uci.edu/~gohlke/pythonlibs/ to download the .whl file for GDAL and Rasterio (if needed). 
 
-![image](https://github.com/HoucaiGuo/OBSUM-code/blob/main/OBSUM.png)
+![image](https://github.com/HoucaiGuo/OBSUM-code/blob/main/OBSUM-Github.png)
