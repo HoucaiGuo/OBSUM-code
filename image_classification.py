@@ -8,7 +8,7 @@ from functions import *
 ###########################################################
 class_num = 5
 F_tb_path = r"data/Coleambally/S2_20211223.tif"
-F_tb_class_path = r"data/Coleambally/S2_20211223_KMeans-{class_num}.tif"
+F_tb_class_path = rf"data/Coleambally/S2_20211223_KMeans-{class_num}.tif"
 
 
 if __name__ == "__main__":
