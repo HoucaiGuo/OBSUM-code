@@ -13,5 +13,3 @@
 
 **Note**: Please visit https://www.lfd.uci.edu/~gohlke/pythonlibs/ to download the .whl file for GDAL and Rasterio (if needed).
 
-## An example of OBSUM
-![image](https://github.com/HoucaiGuo/OBSUM-code/blob/main/OBSUM-Github.png)
