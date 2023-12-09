@@ -30,10 +30,6 @@ similar_num = 30
 min_val = 0.0
 max_val = 1.0
 
-dataset = "Sentinel-Butte"
-tb = "20220713"
-tp = "20220723"
-
 # Path of the fine image at tb, i.e., the base fine image
 F_tb_path = r"data/Sentinel-Butte/S2_20220213.tif"
 # Path of the image objects segmented from the base fine image
