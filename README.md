@@ -7,7 +7,7 @@
 <p align = "justify" style="line-height:150%">If you prefer the Multiresolution Segmentation in the eCognition software, please use the raw image instead of the surface reflectance for segmentation.<br></p>
 
 ## Experimental data
-**Dataset** (Fig. 4 and 5 in the paper, 1.3 GB): https://pan.baidu.com/s/180kcMj6ceNsQQgPZBU2Kqw?pwd=0416
+**Dataset** (Fig. 4 and 5 in the paper, 2.17 GB): https://pan.baidu.com/s/1GZ9t628ncmFGz3D4aVfvWg?pwd=0416
 
 **All fused images** (Fig. 8 and 9 in the paper, 3.8 GB): https://pan.baidu.com/s/1_scDBBI95cmKlqVtPQ4UXA?pwd=0416
 
