@@ -9,7 +9,7 @@
 ## Experimental data
 **Dataset** (Fig. 4 and 5 in the paper, 2.17 GB): https://pan.baidu.com/s/1GZ9t628ncmFGz3D4aVfvWg?pwd=0416
 
-**All fused images** (Fig. 8 and 9 in the paper, 4.61 GB): https://pan.baidu.com/s/1_CNq-xOxwdmTW3CNssHffw?pwd=0416
+**All fused images** (Fig. 9 and 10 in the paper, 4.61 GB): https://pan.baidu.com/s/1_CNq-xOxwdmTW3CNssHffw?pwd=0416
 
 **Note**: Please visit https://www.lfd.uci.edu/~gohlke/pythonlibs/ to download the .whl file for GDAL and Rasterio (if needed).
 
