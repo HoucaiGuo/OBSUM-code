@@ -182,7 +182,7 @@ class OBSUM:
         Returns
         -------
         F_tp_OBSUM : array_like
-            The predicted fine image at t2.
+            The predicted fine image at tp.
         """
         ###########################################################
         #                      Initialization                     #
