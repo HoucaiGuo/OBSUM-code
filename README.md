@@ -1,5 +1,5 @@
 # OBSUM-code
-<p align = "justify" style="line-height:150%">Python code of our paper "OBSUM: An object-based spatial unmixing model for spatiotemporal fusion of remote sensing images" (http://arxiv.org/abs/2310.09517)<br></p>
+<p align = "justify" style="line-height:150%">Python code of our paper "OBSUM: An object-based spatial unmixing model for spatiotemporal fusion of remote sensing images" (https://www.sciencedirect.com/science/article/pii/S0034425724000579#ab0010)<br></p>
 <p align = "justify" style="line-height:150%">OBSUM can fuse images with different spatial and temporal resolutions, e.g., Sentinel-2 and Sentinel-3, to generate images with both high spatial and temporal resolutions, i.e., daily Sentinel-2-like images.<br></p>
 
 ## Image segmentation
